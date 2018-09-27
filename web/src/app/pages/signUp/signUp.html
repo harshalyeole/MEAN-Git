@@ -1,0 +1,66 @@
+<div class="signUpContainer">
+    <div class="row signUpSegment">
+        <div class="col-md-12 signUpdivStyle">
+            <div class="signUpTitle">
+                <img [src]="LogoImage" (click)="navigateToHome()">
+            </div>
+        </div>
+        <div class="col-md-12 signup">
+            <div class="signUpText">Sign Up</div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+                <div class="form-group row col-md-12 inputbutton emaildiv signUpdivStyle" [ngClass]="{'has-error': (!form.get('name').valid && form.get('name').touched), 'has-success': (form.get('name').valid && form.get('name').touched)}">
+                    <div class="input-group sign-up-input">
+                        <span class="input-group-addon" id="basic-addon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <input formControlName="name" type="text" class="form-control inputbox right-border" id="inputname" placeholder="Name" pattern="([a-zA-Z ]+\s?)*$"
+                            #name (blur)="name.value = trimContent(name.value, 'name')" maxlength="30" tabindex="1">
+                    </div>
+                    <div class="signUpErrorMessage">
+                        <span *ngIf="!form.get('name').valid && form.get('name').touched" class="help-block sub-little-signUp-error confpass">Name is {{!form.get('name').valid && form.get('name').value === ''?'required':'not valid'}}.</span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-12 inputbutton signUpdivStyle" [ngClass]="{'has-error': (!form.get('email').valid && form.get('email').touched), 'has-success': (form.get('email').valid && form.get('email').touched)}">
+                    <div class="input-group sign-up-input">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <input formControlName="email" type="email" class="form-control inputbox right-border" id="inputEmail3" placeholder="Email"
+                            maxlength="60" tabindex="2">
+                    </div>
+                    <div class="signUpErrorMessage">
+                        <span *ngIf="!form.get('email').valid && form.get('email').touched" class="help-block sub-little-signUp-error confpass">Email is {{!form.get('email').valid && form.get('email').value === ''?'required':'not valid'}}.</span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-12 inputbutton passwordtext signUpdivStyle" [ngClass]="{'has-error': (!form.get('password').valid && form.get('password').touched), 'has-success': (form.get('password').valid && form.get('password').touched)}">
+                    <div class="input-group  sign-up-input">
+                        <span class="input-group-addon" id="basic-addon3">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                        <input formControlName="password" type="password" class="form-control inputbox right-border" id="inputPassword3" placeholder="Password"
+                            maxlength="16" tabindex="3">
+                    </div>
+                    <div class="signUpErrorMessage">
+                        <span *ngIf="!form.get('password').valid && form.get('password').touched" class="help-block sub-little-signUp-error confpass">Password is {{!form.get('password').valid && form.get('password').value === ''?'required':'not valid'}}.</span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-12 inputbutton submitButton signUpdivStyle">
+                    <button [ngClass]="{'disableSubmit' : (!form.valid || submitted) }" [disabled]="!form.valid || submitted" type="submit" class="btnStyle signUpButton"
+                        tabindex="6">SIGN UP</button>
+                </div>
+
+            </form>
+            <div class="col-md-12 alreadyHaveAccount signUpdivStyle">
+                <div class="col-md-12 signUpdivStyle signUpFooter">
+                    <span>Already have an account?</span>
+                    <a tabindex="7" (keyup.enter)="navigateToSignIn()" (click)="navigateToSignIn()">
+                        <span class="forgotPassword">Sign In</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

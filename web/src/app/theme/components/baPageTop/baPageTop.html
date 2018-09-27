@@ -1,0 +1,19 @@
+<div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
+     [ngClass]="{scrolled: isScrolled}">
+    <a (click)="navigateToDashboard()" class="al-logo clearfix"><img [src]="LogoImage"></a>
+    <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+    <div class="user-profile clearfix">
+        <div class="dropdown al-user-profile">
+            <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown"
+               aria-expanded="false">
+                <div class="user-picture-circle">
+                <img src="{{userProfileImage}}" onError="this.src='assets/img/default-user.png'">
+                </div>
+                <div class="profile-user-name"><span>Hi, {{userName | capitalize}} <i class="fa fa-angle-down"></i></span></div>
+            </a>
+            <ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
+                <li class="dropdown-item"><a class="signout" (click)="loggedOff()"><i class="fa fa-power-off"></i>Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+@mixin header {
+  margin: 10px 0;
+  font-weight: bold;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+body {
+  position: relative;
+  min-width: 1060px;
+}
+p {
+  margin: 0 0 10px
+}
+
+em {
+  font-style: italic
+}
+
+h1 {
+  @include header;
+
+  line-height: 40px;
+  font-size: 39px
+}
+
+h2 {
+  @include header;
+
+  line-height: 40px;
+  margin-top: 30px;
+  font-size: 31px;
+}
+
+h3 {
+  @include header;
+
+  line-height: 40px;
+  font-size: 23px;
+}
+
+h4 {
+  @include header;
+
+  line-height: 20px;
+  font-size: 16px;
+}
+
+h5 {
+  @include header;
+
+  line-height: 40px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+h6 {
+  @include header;
+
+  line-height: 20px;
+  font-size: 11px;
+}
+
+
+h1 small {
+  font-size: 24px;
+}
+
+h2 small {
+  font-size: 18px;
+}
+
+h3 small {
+  font-size: 16px;
+}
+
+h4 small {
+  font-size: 14px;
+}
+
+ul, ol {
+  margin: 0 0 10px 25px;
+  padding: 0
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0
+}
+
+li {
+  line-height: 20px
+}
+
+a {
+  text-decoration: none
+}

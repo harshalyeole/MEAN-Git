@@ -1,0 +1,56 @@
+@import '../../sass/conf/conf';
+
+.content-top {
+
+  padding: 18px 13px 13px;
+  background-color: #ffffff;
+}
+.al-content {
+
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 0;
+  padding: 8px 32px 8px 40px;
+ // padding: 0px 2px 8px 2px;
+}
+
+h1.al-title {
+  font-weight: $font-bold;
+  color: #374767;
+  float: left;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.al-breadcrumb {
+  background: none;
+  color: #374767;
+  padding: 0;
+  margin: 0;
+  float: right;
+  padding-top: 5px;
+  li {
+    font-size: 18px;
+    font-weight: $font-normal;
+    a {
+      color: #374767;
+    }
+
+    &.breadcrumb-item.active {
+      color: #374767;
+    }
+  }
+}
+
+.al-look {
+  float: right;
+  margin-right: 10px;
+  padding-top: 10px;
+  > a {
+    font-size: 19px;
+  }
+}

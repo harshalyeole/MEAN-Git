@@ -1,0 +1,54 @@
+<div class="loginContainer">
+    <div class="row loginSegment">
+        <div class="col-md-12">
+            <div class="loginTitle">
+                <img [src]="LogoImage">
+            </div>
+        </div>
+        <div class="loginBody">
+            <div style="padding: 5%">
+                <div class="col-md-12 signIn">
+                    <div class="signInText">Sign In</div>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+                    <div class="form-group row col-md-12 inputbutton emaildiv" [ngClass]="{'has-error': (!form.get('email').valid && form.get('email').touched), 'has-success': (form.get('email').valid && form.get('email').touched)}">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                            <input #emailField formControlName="email" type="email" class="form-control inputbox right-border" id="inputEmail3" placeholder="Email"
+                                autofocus tabindex="1">
+                        </div>
+                        <div class="signUpErrorMessage">
+                            <span *ngIf="!form.get('email').valid && form.get('email').touched" class="help-block sub-little-signUp-error confpass">Email is {{!form.get('email').valid && form.get('email').value === ''?'required':'not valid'}}.</span>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-12 inputbutton passwordtext" [ngClass]="{'has-error': (!form.get('password').valid && form.get('password').touched), 'has-success': (form.get('password').valid && form.get('password').touched)}">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon">
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                            </span>
+                            <input formControlName="password" type="password" class="form-control inputbox right-border" id="inputPassword3" placeholder="Password"
+                                maxlength="16" tabindex="2">
+                        </div>
+                        <div class="signUpErrorMessage">
+                            <span *ngIf="!form.get('password').valid && form.get('password').touched" class="help-block sub-little-signUp-error confpass">Password is {{!form.get('password').valid && form.get('password').value === ''?'required':'not
+                                valid'}}.</span>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-12 inputbutton submitButton">
+                        <input [ngClass]="{'disableSubmit' : (!form.valid || submitted) }" [disabled]="!form.valid || submitted" type="submit" class="btnStyle"
+                            tabindex="3" value="SIGN IN">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 signin" style="display: inline-block;">
+                <div class="col-md-12">
+                    <a [routerLink]="['/signup']" tabindex="5">
+                        <span class="forgotPassword">Create Your account Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

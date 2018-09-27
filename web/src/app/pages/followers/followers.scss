@@ -1,0 +1,203 @@
+@import "../../../styles";
+@import "../../theme/sass/_auth";
+
+
+@mixin stepProgress(){
+  .barChartDashBoard {
+    border-radius: $border-radius;
+    display: block;
+    border: 1px solid $border-universal-color;
+    padding: 10px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+.dashBoardContainer {
+  margin: 115px 2.5% 50px 2.5%;
+  padding: 15px;
+  background: white;
+  overflow-y: auto;
+  min-width: 95%;
+  border-radius: $border-radius;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  .dashBoardContent {
+    display: block;
+    margin: 10px 0;
+    .messageContainer {
+      text-align: center;
+      padding: 20px;
+    }
+    .messageBody {
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      line-height: initial;
+    }
+    .button {
+      &:hover {
+        background-color: #f1f3f6;
+      }
+      font-size: medium;
+      font-weight: bold;
+      border-radius: $border-radius;
+      border: 1px solid #374767;
+      position: relative;
+      background-color: transparent;
+      color: #374767;
+      padding: 15px;
+      width: 25%;
+      text-align: center;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .leftCharts {
+      display: inline-block;
+      @include stepProgress();
+      .doughnutChartDashBoard {
+        border-radius: $border-radius;
+        display: block;
+        border: 1px solid $border-universal-color;
+        margin-top: 30px;
+        padding: 10px;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+    .sideUserGrid {
+      @include stepProgress();
+      .rectContainer {
+        float: left;
+        .imgResponsive {
+          margin-bottom: 25px;
+        }
+        .imgResponsiveLowerSquares {
+          margin-bottom: 19px;
+        }
+        .squareDiv {
+          width: 100%;
+          border: 1px solid $border-universal-color;
+          padding: 23.5%;
+          text-align: center;
+          font-weight: 600;
+          border-radius: $border-radius;
+          display: inline-block;
+          float: left;
+          box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+      }
+      .totalUsers {
+        width: 100%;
+        border: none;
+        float: left;
+        padding: 10%;
+        margin-top: 15px;
+        border-radius: $border-radius;
+        background-color: $signin-link-color;
+        text-align: center;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+      }
+      .usersGrid {
+        width: 100%;
+        margin-top: 25px;
+        float: left;
+        .countTitle {
+          color: $primary;
+          font-size: 15px;
+          line-height: initial;
+        }
+        .count{
+          color: $primary;
+          font-size: 30px;
+          line-height: initial;
+        }
+
+      }
+      .userGridTitle {
+        color: white;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        font-size: 30px;
+        line-height: initial;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1002px) and (max-width: 1200px) {
+  .dashBoardContainer {
+    .dashBoardContent {
+      .leftCharts {
+        .barChartDashBoard{
+          min-height: 245px;
+        }
+        .doughnutChartDashBoard{
+          min-height: 245px;
+        }
+      }
+      .sideUserGrid{
+        .barChartDashBoard {
+          min-height: 520px;
+          max-height: 520px;
+        }
+      }
+    }
+
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1001px) {
+  .dashBoardContainer {
+    .dashBoardContent {
+      .leftCharts {
+        .barChartDashBoard{
+          min-height: 210px;
+        }
+        .doughnutChartDashBoard{
+          min-height: 210px;
+        }
+      }
+      .sideUserGrid{
+        .barChartDashBoard {
+          min-height: 450px;
+          max-height: 450px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 767px) {
+  .dashBoardContainer {
+    .dashBoardContent {
+      .rectContainer {
+        width: 50%;
+      }
+      .sideUserGrid {
+        margin-top: 10px;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .dashBoardContainer {
+
+    .dashBoardContent {
+      .withoutPadding {
+        padding:0
+      }
+      .rectContainer {
+        width: 100%;
+      }
+      .sideUserGrid {
+        margin-top: 10px;
+      }
+    }
+  }
+
+}

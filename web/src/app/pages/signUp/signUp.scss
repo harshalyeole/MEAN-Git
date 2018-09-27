@@ -1,0 +1,158 @@
+@import '../../theme/sass/auth';
+@import '../../../styles';
+
+.signUpContainer {
+  text-align: center;
+  .signUpSegment {
+    width: 28%;
+    display: inline-block;
+    .signUpdivStyle {
+      text-align: center;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+    }
+    .signUpTitle {
+      width: 100%;
+      display: inline-block;
+      margin-top: 15%;
+      img {
+        cursor: pointer;
+        width: 60%;
+      }
+    }
+    .signup {
+      border: 1px solid gainsboro;
+      background-color: $white-bg;
+      border-radius: $border-radius;
+      margin-top: 10px;
+      cursor: text;
+      .signUpdivStyle {
+        text-align: center;
+        font-size: 17px;
+        margin-top: 5%;
+        margin-bottom: 16px;
+        font-weight: 500;
+        letter-spacing: 0.005em;
+        cursor: text;
+        .sign-up-input {
+          height: 95%;
+        }
+      }
+      .right-border {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .input-group {
+        .input-group-addon {
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+        }
+      }
+      .emaildiv {
+        margin-bottom: 16px;
+      }
+      .submitButton {
+        margin-top: 5%;
+        cursor: pointer;
+      }
+      .signUpText {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 7%;
+        font-size: 17px;
+      }
+      .disableSubmit {
+        opacity: 0.8;
+        cursor: not-allowed;
+        &:hover {
+          opacity: 0.8;
+          cursor: not-allowed;
+        }
+      }
+      .help-block {
+        color: red;
+      }
+      .sub-little-text {
+        font-size: 12px;
+      }
+      .alreadyHaveAccount {
+        margin-bottom: 5%;
+      }
+    }
+    .signUpErrorMessage {
+      float: left;
+      margin-top: -35px;
+      width: 100%;
+    }
+    .sub-little-signUp-error {
+      font-size: 12px;
+    }
+    a {
+        color: $signin-link-color
+    }
+    .forgotPassword {
+      cursor: pointer;
+      font-size: 17px;
+      color: $signin-link-color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.role-names {
+  padding: 0 10px;
+  input[type="radio"] {
+    top: 2px;
+    position: relative;
+  }
+}
+
+.companyBrief {
+  height: 100px;
+  textarea {
+    height: 100%
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .signUpSegment {
+    width: 100%;
+  }
+  .horizontalLine {
+    display: inline-block;
+    width: 35%;
+    hr {
+      margin-top: -4px;
+      margin-bottom: 0;
+    }
+  }
+  .signUpText {
+    display: inline-block;
+    width: 27%;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .signUpSegment {
+    width: 60% !important;
+  }
+  .signUpText {
+    display: inline-block;
+    width: 27%;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .signUpSegment {
+    width: 100% !important;;
+  }
+  .signUpText {
+    display: inline-block;
+    width: 27%;
+    padding: 0;
+  }
+}

@@ -1,0 +1,151 @@
+@import '../../theme/sass/auth';
+@import '../../../styles';
+
+@media screen and (min-width: 200px) and (max-width: 700px) {
+  .loginSegment {
+    width: 100% !important;;
+  }
+  .signInText {
+    display: inline-block;
+    width: 27%;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .loginSegment {
+    width: 60% !important;
+  }
+  .signInText {
+    display: inline-block;
+    width: 27%;
+  }
+}
+
+.loginContainer {
+  text-align: center;
+  .loginSegment {
+    width: 28%;
+    display: inline-block;
+    div {
+      text-align: center;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+    }
+    .loginTitle {
+      width: 60%;
+      display: inline-block;
+      margin-top: 15%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .loginBody {
+      border: 1px solid gainsboro;
+      background-color: $white-bg;
+      border-radius: $border-radius;
+      margin-top: 10px;
+      .signIn {
+        padding-top: 1.4%;
+        padding-bottom: 3%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        .signInText {
+          width: 80%;
+          margin: 0 auto;
+          font-size: 17px;
+        }
+      }
+      .emaildiv {
+        margin-bottom: 16px;
+      }
+      .submitButton {
+        margin-top: 7%;
+      }
+      .passwordtext {
+        margin-top: 0px;
+      }
+      .disableSubmit {
+        opacity: 0.8;
+        cursor: not-allowed;
+        &hover {
+          opacity: 0.8;
+          cursor: not-allowed;
+        }
+      }
+      .input-group {
+        height: 55px;
+        .input-group-addon {
+          border-bottom-left-radius: $border-radius;
+          border-top-left-radius: $border-radius;
+        }
+      }
+      .right-border {
+        border-bottom-right-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+      .signin {
+        padding-bottom: 4.5%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        div{
+          padding-top: 5px;
+        }
+        a {
+          color: $signin-link-color
+        }
+        .forgotPassword {
+          cursor: pointer;
+          font-size: 17px;
+          color: $signin-link-color;
+          outline: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .facebook-login {
+        display: inline-block;
+        padding-left: 9%;
+        padding-right: 9%;
+        height: 74px;
+        position: relative;
+        i{
+          position: absolute;
+          border-right: thin solid white;
+          color: white;
+          font-size: 40px;
+          height: 57px;
+          padding-right: 14px;
+          padding-left: 12px;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.loginBody {
+  .has-error .form-control {
+    border: 1px solid #fa758e;
+  }
+  .has-success .form-control {
+    border: 1px solid $signin-link-color;
+  }
+  .signUpErrorMessage {
+    float: left;
+    margin-top: -35px;
+    width: 100%;
+  }
+  .help-block {
+    color: red;
+  }
+  .sub-little-signUp-error {
+    font-size: 12px;
+  }
+
+}

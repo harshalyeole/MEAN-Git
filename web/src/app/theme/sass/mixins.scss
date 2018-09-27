@@ -1,0 +1,141 @@
+@mixin confirmButtons() {
+  .confirmButtons{
+    width:50%;
+    margin:0 auto;
+    .yesButton{
+      width: 49%;
+      float: left;
+      .yesConfirm{
+        width: 90%;
+        height:35px;
+        background-color: $signin-link-color !important;
+        border: none;
+        font-size:$font-size;
+        border-radius: $border-radius;
+        outline: none;
+        color:white;
+        cursor: pointer;
+      }
+    }
+    .noButton{
+      width: 49%;
+      float: left;
+      .noConfirm{
+        width:90%;
+        height:35px;
+        background-color: grey !important;
+        border: none;
+        font-size:$font-size;
+        border-radius: $border-radius;
+        outline: none;
+        color:white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@mixin placeholderColor($color...) {
+  .searchbox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color;
+  }
+  .searchbox::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+  }
+  .searchbox:-ms-input-placeholder { /* IE 10+ */
+    color: $color;
+  }
+  .searchbox:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+  }
+}
+
+@mixin gridSearchInput() {
+  width: 40%;
+  float: left;
+  padding: 5px 5px 5px 0px;
+  .search {
+    width: 100%;
+    height: 35px;
+    color:#666666;
+    padding-left: 2%;
+    border: 1px solid gainsboro;
+    outline: none;
+    box-shadow: none;
+    @media screen and (max-width: 767px) {
+      height: 45px;
+    }
+  }
+}
+
+@mixin inputRightBorder($border-radius...) {
+  .right-border {
+    border-bottom-right-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+}
+
+@mixin inputAddOnBorder($border-radius...) {
+  .input-group-addon {
+    border-bottom-left-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+  }
+}
+
+@mixin addButtonContainer() {
+  width: 50%;
+  float: right;
+  padding: 5px 0 5px 5px;
+  .add {
+    width: 100%;
+    height: 35px;
+    background-color: $add-btn-color;
+    outline: none;
+    border: none;
+    border-radius: $border-radius;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    @media screen and (max-width: 767px) {
+      height: 45px;
+    }
+  }
+}
+
+@mixin confirmDialogueActiveInActive() {
+  .modal-footer{
+    display:none;
+  }
+  .fade{
+    opacity: 1 !important;
+  }
+  .confirmButtonsContainer{
+    width:100%;
+    height:50px;
+    padding: 20px 0 0 0;
+    @include confirmButtons();
+  }
+  .modal-dialog {
+    top: 25%;
+  }
+  .modal-content {
+    padding: 20px;
+  }
+  button.close {
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  .modal-body {
+    padding: 0 0 20px;
+    top: 20px;
+  }
+}
+
+
+
+
+
+

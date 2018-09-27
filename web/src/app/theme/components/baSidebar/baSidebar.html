@@ -1,0 +1,14 @@
+<aside class="al-sidebar" sidebarResize>
+  <div>
+    <div class="userImageDiv">
+      <img class="userImageSidebar" src="{{userProfileImage}}" onError="this.src='assets/img/default-user.png'">
+    </div>
+    <div class="userProfileName">
+      {{userName | capitalize}}
+    </div>
+
+  </div>
+  <ba-menu [menuHeight]="menuHeight"
+           [sidebarCollapsed]="isMenuCollapsed"
+           (expandMenu)="menuExpand()"></ba-menu>
+</aside>
