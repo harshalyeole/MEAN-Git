@@ -36,7 +36,6 @@ module.exports = {
     /**
      * Email constant
      */
-    SENDER_EMAIL: `harshal.yeole@tudip.com`,
     DEFAULT_LOGO: `/public/images/logos/logo.png`,
     
     IMAGE_FILE_NAME: `logo.png`,

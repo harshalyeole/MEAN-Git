@@ -18,7 +18,7 @@ import {USER_MENU} from './pages.menu';
     </div>
     <footer class="al-footer clearfix">
       <div class="al-footer-main clearfix">
-        <div class="al-copy">&copy; <a href="http://tudip.com/" translate>Equityfor.com. </a>{{currentYear}}</div>
+        <div class="al-copy">&copy; <a href="https://github.com/harshalyeole/MEAN-Git" translate>mean-git.com. </a>{{currentYear}}</div>
       </div>
     </footer>
     <ba-back-top position="200"></ba-back-top>

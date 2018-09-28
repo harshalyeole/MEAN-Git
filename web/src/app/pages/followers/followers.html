@@ -1,7 +1,29 @@
 <div class="dashBoardContainer">
     <div class="dashBoardContent">
-        <div class="col-md-12 col-xs-12 withoutPadding">
-            GitHub Users
+            <div class="col-md-12 col-xs-12 barChartDashBoard">
+                    <canvas class="barChart" baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                </div>
+        <div class="main-panel">
+            <div class="card-github col-md-5" *ngFor="let user of githubFollowers" (click)="userDetails(user)">
+                <div class="col-md-12">
+                    <img class="profileImageGithub" src="{{user.avatar_url}}" />
+                    <div class="profileLogin">
+                        <div class="name">{{user.name || user.login}}</div>
+                        <div class="item">
+                            <span>Followers: </span>{{user.followers}}</div>
+                        <div class="url">
+                            <a href="{{user.html_url}}">{{user.html_url}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

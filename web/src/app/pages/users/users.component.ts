@@ -14,7 +14,7 @@ export class Users {
     isUser: any;
     githubUsers: any = [];
     searchContent: any;
-    maxScrollLimit = 8;
+    maxScrollLimit = 10;
     selector: string = '.main-panel';
     constructor(private _spinner: BaThemeSpinner,
         private authentication: AuthenticationHelper,
@@ -23,22 +23,20 @@ export class Users {
         this.isUser = this.authentication.isUser();
     }
 
-
-
     totalgithubUsers() {
-          if(this.githubUsers.length) {
+        if (this.githubUsers && this.githubUsers.length) {
             return this.githubUsers.slice(0, this.maxScrollLimit);
-          } else {
+        } else {
             return [];
-          }  
+        }
     }
     ngOnInit() {
         this.gitHub("harshalyeo");
     }
+
     onScroll() {
-        console.log('scrolled!!');
-        this.maxScrollLimit = this.maxScrollLimit + 8;
-      }
+        this.maxScrollLimit = this.maxScrollLimit + 10;
+    }
 
 
     gitHub(data) {
@@ -51,23 +49,21 @@ export class Users {
 
 
     userDetails(user) {
-        console.log("clicked",user);
         this.authentication.setUserDetails(user);
-        this.router.navigate(['followers']);
+        this.router.navigate(['userDetails/'+user.login]);
     }
 
     findUser(searchContent) {
         this.gitHub(searchContent);
     }
 
-    githubSuccess({data}) {
+    githubSuccess({ data }) {
         console.log(data);
         this.githubUsers = data;
         this._spinner.hide();
     }
 
     githubFail(error) {
-        console.log(error);
         this._spinner.hide();
     }
 }

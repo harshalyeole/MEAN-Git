@@ -1,0 +1,36 @@
+<div class="dashBoardContainer">
+    <div class="dashBoardContent">
+        <div class="main-panel">
+            <div class="col-md-12" *ngIf="githubUser?.name;">
+                <div class="col-md-4 imageUserContainer">
+                    <img class="profileImageGithubDetails" src="{{githubUser.avatar_url}}" />
+                </div>
+                <div class="profileDetails col-md-8 ">
+                    <div *ngIf="githubUser.name"  class="name">
+                        {{githubUser.name}}
+                        <div  *ngIf="githubUser.location"  class="location">
+                            {{githubUser.location}}
+                        </div>
+                    </div>
+                    <div *ngIf="githubUser.bio" class="userBio">
+                        {{githubUser.bio}}</div>
+                    <div class="userData">
+                        <div class="item">
+                            <span>Followers: </span>{{githubUser.followers}}</div>
+                        <div class="item">
+                            <span>Following: </span>{{githubUser.following}}</div>
+                        <div class="item">
+                            <span>Public Repos: </span>{{githubUser.public_repos}}</div>
+                        <div class="url">
+                            <a href="{{githubUser.html_url}}">{{githubUser.html_url}}</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <ng-template #noData> 
+               <div class="noData"> No Data </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

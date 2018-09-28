@@ -4,9 +4,9 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
 export class AuthenticationHelper {
     user: any;
     userKey: string = 'user';
+    setUserDetailsItem: any;
 
     @Output() changeContentTopText: EventEmitter<any> = new EventEmitter(true);
-    @Output() setUserDetailsItem: EventEmitter<any> = new EventEmitter(true);
     @Output() userValueChanged: EventEmitter<any> = new EventEmitter(true);
 
     constructor() {
@@ -58,7 +58,7 @@ export class AuthenticationHelper {
     }
 
     setUserDetails(value) {
-        this.setUserDetailsItem.emit(value);
+        this.setUserDetailsItem = value;
     }
 
     getUserDetails() {

@@ -31,6 +31,11 @@ export const routes:Routes = [
                 canActivate: [LoginGuard]
             },
             {
+                path: 'userDetails/:username',
+                loadChildren: './userDetails/userDetails.module#UserDetailsModule',
+                canActivate: [LoginGuard]
+            },
+            {
                 path: 'followers',
                 loadChildren: './followers/followers.module#FollowersModule',
                 canActivate: [LoginGuard]

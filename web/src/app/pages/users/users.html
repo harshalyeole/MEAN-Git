@@ -1,7 +1,7 @@
 <div class="dashBoardContainer" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
     <div class="dashBoardContent">
         <div class="col-sm-12 searchContainer">
-            <input type="text" [(ngModel)]="searchContent" onblur="this.value = this.value.trim()" (keyup.enter)="findUser(searchContent)" class="githubSearch" id="iconified" placeholder="&#xF002;   Search...">
+            <input type="text" [(ngModel)]="searchContent" onblur="this.value = this.value.trim()" (keyup.enter)="findUser(searchContent)" class="githubSearch" id="iconified" placeholder="&#xF002;   Search username...">
         </div>
         <div class="main-panel">
             <div class="card-github col-md-5" *ngFor="let user of totalgithubUsers()" (click)="userDetails(user)">

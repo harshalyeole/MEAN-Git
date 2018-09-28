@@ -1,11 +1,14 @@
 // Custom include
 const Passport = require(`passport`);
+const request = require('request');
 const { Strategy: LocalStrategy } = require(`passport-local`);
 const { setSuccessResponse, setErrorResponse } = require(`../services/api-handler`);
 const { getLoginToken } = require(`../helpers/jwt`);
 const model = require(`../models/index`);
 const { isEmptyOrNull, isNotEmail } = require(`../helpers/validation`);
 const ERROR = require(`../helpers/error-keys`);
+
+
 /**
  * API to sign up of user to app.
  * @param req
@@ -115,15 +118,11 @@ exports.login = (req, res, next) => {
 
 var GitHub = require("github-api")
 
-var gh = new GitHub({
-    username: 'harshalyeole-tudip',
-    password: 'Tudip@123'
-});
+var gh = new GitHub({});
 
 var search = gh.search();
 
 
-var request = require('request');
 /**
  * API to search the github.
  * @param req
@@ -131,13 +130,46 @@ var request = require('request');
  */
 exports.search = (req, res) => {
     const { query: { q } } = req;
-    console.log(q);
     search.forUsers({
         q,
         sort: "followers",
         order: "desc"
     }, (err, data) => {
-        console.log("data", data);
         setSuccessResponse(data, res);
+    });
+};
+
+/**
+ * API to search the github.
+ * @param req
+ * @param res
+ */
+exports.userDetails = (req, res) => {
+    const { params: {
+        username
+    } } = req;
+    var user = gh.getUser(username);
+    user.getProfile((err, userDetails) => {
+        if (userDetails) {
+            model.githubuser.createGitHubUser(userDetails);
+            setSuccessResponse(userDetails, res);
+        } else {
+            setSuccessResponse([], res);
+        }
+    });
+};
+
+/**
+ * API to search the github followers.
+ * @param req
+ * @param res
+ */
+exports.followers = (req, res) => {
+    model.githubuser.getGitHubUser((err, userDetails) => {
+        if (userDetails) {
+            setSuccessResponse(userDetails, res);
+        } else {
+            setSuccessResponse([], res);
+        }
     });
 };
