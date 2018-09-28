@@ -37,12 +37,10 @@ export class Followers {
         private cdr: ChangeDetectorRef,
         private router: Router) {
         this.isUser = this.authentication.isUser();
-        console.log("++++++++++++++++++++++++");
 
     }
 
     ngOnInit() {
-        console.log("======================");
         this.gitHubFollowers();
     }
 
@@ -72,7 +70,6 @@ export class Followers {
     githubSuccess({ data }) {
         this.githubFollowers = data;
         data.forEach(user => {
-            console.log(user.name);
             this.barChartLabels.push(user.login)
             this.barChartData[0].data.push(user.followers)
         });

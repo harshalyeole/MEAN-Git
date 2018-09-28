@@ -58,7 +58,6 @@ export class Users {
     }
 
     githubSuccess({ data }) {
-        console.log(data);
         this.githubUsers = data;
         this._spinner.hide();
     }

@@ -7,6 +7,7 @@ import {EmailValidator, EqualPasswordsValidator, MobileNumberValidator} from '..
 import {BlankSpaceValidator} from '../../theme/validators/blank.validator';
 import {AppConstant} from "../../app.constant";
 import {ApplicationAdminServices} from '../../appServices/application';
+import { AuthenticationHelper } from '../../app.authentication';
 
 @Component({
     selector: 'signUp',
@@ -19,11 +20,14 @@ export class signUp extends AppConstant {
     form: FormGroup;
     submitted: boolean = false;
     data: any;
+    isLoggedIn: boolean = false;
     model: any;
     roles: any;
     @ViewChildren('name') firstField;
 
-    constructor(fb: FormBuilder, private router: Router, private appService: ApplicationAdminServices,
+    constructor(fb: FormBuilder, 
+        private authentication: AuthenticationHelper,
+        private router: Router, private appService: ApplicationAdminServices,
                 public toastr: ToastrService, vRef: ViewContainerRef, private _spinner: BaThemeSpinner) {
         super();
         this._spinner.hide();
@@ -59,9 +63,15 @@ export class signUp extends AppConstant {
      * if signup success
      * @param data
      */
-    signUpSuccess(data) {
-        if(data){
+    signUpSuccess(result) {
+        if(result){
             this._spinner.hide();
+
+            this.authentication.setToken(result.data.token);
+            this.isLoggedIn = true;
+            this.authentication.setIsLoggedIn(true);
+            this.authentication.setUserLocal(result);
+
             this.toastr.success('SignUp Successful.');
             this.router.navigate(['users']);
         }

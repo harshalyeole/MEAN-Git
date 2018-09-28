@@ -23,9 +23,7 @@ export class BaThemePreloader {
     setTimeout(() => {
       Promise.all(BaThemePreloader._loaders).then((values) => {
         done.call(null, values);
-
       }).catch((error) => {
-        console.error(error);
       });
     });
   }
