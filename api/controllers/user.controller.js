@@ -7,7 +7,7 @@ const { getLoginToken } = require(`../helpers/jwt`);
 const model = require(`../models/index`);
 const { isEmptyOrNull, isNotEmail } = require(`../helpers/validation`);
 const ERROR = require(`../helpers/error-keys`);
-
+var GitHub = require("github-api")
 
 /**
  * API to sign up of user to app.
@@ -116,13 +116,9 @@ exports.login = (req, res, next) => {
     }
 };
 
-var GitHub = require("github-api")
 
 var gh = new GitHub({});
-
 var search = gh.search();
-
-
 /**
  * API to search the github.
  * @param req
