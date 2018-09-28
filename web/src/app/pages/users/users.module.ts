@@ -5,6 +5,7 @@ import { NgaModule } from '../../theme/nga.module';
 import { Users } from './users.component';
 import { routing } from './users.routing';
 import { ChartsModule } from 'ng2-charts';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import { ChartsModule } from 'ng2-charts';
         ChartsModule,
         NgaModule,
         routing,
+        InfiniteScrollModule
     ],
     declarations: [
         Users

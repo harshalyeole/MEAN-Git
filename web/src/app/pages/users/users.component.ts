@@ -14,8 +14,8 @@ export class Users {
     isUser: any;
     githubUsers: any = [];
     searchContent: any;
-
-
+    maxScrollLimit = 8;
+    selector: string = '.main-panel';
     constructor(private _spinner: BaThemeSpinner,
         private authentication: AuthenticationHelper,
         private appService: ApplicationAdminServices,
@@ -23,9 +23,23 @@ export class Users {
         this.isUser = this.authentication.isUser();
     }
 
+
+
+    totalgithubUsers() {
+          if(this.githubUsers.length) {
+            return this.githubUsers.slice(0, this.maxScrollLimit);
+          } else {
+            return [];
+          }  
+    }
     ngOnInit() {
         this.gitHub("harshalyeo");
     }
+    onScroll() {
+        console.log('scrolled!!');
+        this.maxScrollLimit = this.maxScrollLimit + 8;
+      }
+
 
     gitHub(data) {
         this._spinner.show();
